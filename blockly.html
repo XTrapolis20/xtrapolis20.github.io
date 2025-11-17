@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blockly</title> 
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh; /* allows scrolling if content grows */
+    background-color: #fafafa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow-y: auto; /* enable vertical scrolling */
+  }
+
+  .back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .back-button:hover {
+    background-color: #005fa3;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    line-height: 1.6;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <h1>Introduction to programming-Blockly</h1>
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blocky Chapter 1 Question 1</h2>
+    <img src="https://i.postimg.cc/MTkBmy2Z/blockly-hello.png" alt="Blockly Hello World block" style="width: 250px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "print" block prints "Hello, world!"</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 1 Question 2</h2>
+    <img src="https://i.postimg.cc/4dCcQzCD/blockly-haiku.png" alt="Blockly Haiku block" style="width: 300px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "print" block prints out the words written down. However, since the "print" block is on top of each other and not all in the same block, the new line goes under the other text.</p>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 1 Question 3</h2>
+    <img src="https://i.postimg.cc/fLx92JDB/blockly-show.png" alt="Blockly show block" style="width: 450px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block prints out "the simpsons", the "print" block prints "Thanks for watching.", the next "print" block will then print out "Next up we have" and then prints out the variable.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 1 Question 4</h2>
+    <img src="https://i.postimg.cc/pTDFGpR0/blockly-sit.png" alt="Blockly sit block" style="width: 450px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block prints out "the simpsons", the "print" block prints "Thanks for watching.", the next "print" block will then print out "Next up we have" and then prints out the variable. Do know that from now on the variable will be named differently, but your variable can be named anything unless told otherwise.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 1 Question 5</h2>
+    <img src="https://i.postimg.cc/d18yHLwx/blockly-teams.png" alt="Blockly sit block" style="width: 450px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the 2 "variable" blocks prints out to ask what the two teams are. Then, the "print" block prints out "The match of the year: [Variable 1] and [variable 2]."</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 2 Question 1</h2>
+    <img src="https://i.postimg.cc/B6xKYX4F/blockly-olympics.png" alt="Blockly olympics block" style="width: 500px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block prints out to ask "When is the olympics?". Then, the number you put in increases by 4. After, the "print" block prints out the prompt.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 2 Question 2</h2>
+    <img src="https://i.postimg.cc/85h6KjNn/blockly-square.png" alt="Blockly square block" style="width: 250px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "move forward 50 steps" and "turn right" blocks let the turtle move with a pen underneath to draw a square. Do know that the size has to be the exact same as this.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 2 Question 3</h2>
+    <img src="https://i.postimg.cc/KzXTDnSR/blockly-hexagon.png" alt="Blockly hexagon block" style="width: 200px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "move forward 80 steps" and "turn left 60 degrees" blocks let the turtle draw a hexagon. Do know that the code should be connected.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 3 Question 1</h2>
+    <img src="https://i.postimg.cc/x8nbWn15/blockly-tuesdays.png" alt="Blockly tuesdays block" style="width: 400px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "When can we see a movie?". If the variable = "Tuesday" then you have to add another line to print "Great! Tuesdays are cheap". Otherwises, you only need to print out "I want to see Finding Dory".</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 3 Question 2</h2>
+    <img src="https://i.postimg.cc/Pxmw3PTm/blockly-pokemon.png" alt="Blockly pokemon block" style="width: 400px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Which is your favourite". If you chose "Pikachu" then the code would respond "Me too!" but if you chose a different pokemon the code would respond "I like Pikachu".</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 3 Question 3</h2>
+    <img src="https://i.postimg.cc/tT06NhQh/blockly-moisture.png" alt="Blockly moisture block" style="width: 400px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Moisture level:". If your moisture level was above 24, the "print" block prints "The plants are happy." but if you answer your moisture level below 24 then it would print "Water the plants."</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+  <h2>Blockly Chapter 3 Question 4</h2>
+  <img src="https://i.postimg.cc/nzvDRCp4/blockly-portuguese1.png" alt="Blockly port1 block" 
+       style="width: 300px; margin-top: 10px; border-radius: 8px; display: block; margin-left: auto; margin-right: auto;">
+  <img src="https://i.postimg.cc/1tpqCfsB/blockly-portuguese2.png" alt="Blockly port2 block" 
+       style="width: 250px; margin-top: 10px; border-radius: 8px; display: block; margin-left: auto; margin-right: auto;">
+  <p>The code works as the "variable" block asks "What did they say?", then grab the if block and let the variable block have choices. Example: p = Sim. Once you have done that, for the else choice, use the "print" block and make it print out "Nao compreendo" which means I don't know in Portuguese.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 4 Question 1</h2>
+    <img src="https://i.postimg.cc/d18yHLwn/blockly-queen.png" alt="Blockly queen block" style="width: 400px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "How old are you" but this time it asks for a number. Then, the "print" block will print "You must wait" (100 - Variable) "years."</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 4 Question 2</h2>
+    <img src="https://i.postimg.cc/Y91WnhMv/blockly-no.png" alt="Blockly no block" style="width: 350px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks for a numbe, asking "how long?". You now set your variable block to x o by variable amount. You then use the "print" block to print "N" and the amount of variables with o.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 4 Question 3</h2>
+    <img src="https://i.postimg.cc/sXFW4pdz/blockly-direction.png" alt="Blockly direction block" style="width: 350px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Going up or down?". If the variable answer is up, it will play the first turtle line of code. If you simply do any other word except up it will run the second turtle line of code. Do know that the code should all be connected together.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 4 Question 4</h2>
+    <img src="https://i.postimg.cc/rm64NSXd/blockly-house.png" alt="Blockly house block" style="width: 250px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "What house type?". If the variable answer is "straw" the pen color would change to orange. If the variable answer is "sticks" the pen color would change to black. And if you do a different answer, like "bricks" then the color would be slategray. After the color has been chosen it will play the turtle line of code.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 5 Question 1</h2>
+    <img src="https://i.postimg.cc/858vmhQS/blockly-email.png" alt="Blockly email block" style="width: 350px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Email:". If the word "attach" is in your answer for your "variable" block the "print" block would print "Did you remember your attachment?", otherwise it would simply print out "Sent."</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 5 Question 2</h2>
+    <img src="https://i.postimg.cc/xdNHm67n/blockly-city.png" alt="Blockly city block" style="width: 500px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "City name:". If the "variable" is considered "lower case" then the "print" block will print "You forgot the capital! It should be:" "Title case (variable)". Otherwise, it would simply print "Looks fine to me."</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 5 Question 3</h2>
+    <img src="https://i.postimg.cc/63dvjytS/blockly-telegram.png" alt="Blockly telegram block" style="width: 700px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Message:". Then, the "print" block replaces the "variable" answer with upper case and replace "." with "STOP" in "variable" in the variable block.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 5 Question 4</h2>
+    <img src="https://i.postimg.cc/DZVGPqkF/blockly-double.png" alt="Blockly double block" style="width: 550px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Word:". then, the "if do else" block checks if character 0 and 1 are the same. If it is the same then it will broadcast the first message, otherwise, it would broadcast the second message. Do know that in Blockly the character actually starts at 0, and not 1.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 6 Question 1</h2>
+    <img src="https://i.postimg.cc/cHq3BQyR/blockly-name.png" alt="Blockly name block" style="width: 450px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "What is your name?". The "for each (variable2) in (variable)" it would print "to UPPER CASE (variable2) is for:". You then</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 6 Question 2</h2>
+    <img src="https://i.postimg.cc/pTDFGpR3/blockly-times.png" alt="Blockly times block" style="width: 450px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Stop at:". The "count" block counts your variable from 1 up to your variable by 1. Next, the "print" block prints out "2 x (variable) = (Variable x 2)". Essentially, what happens is that the times will keep going up to the number chosen by the person who asked.</p>
+</div>
+
+<div class="chapter" style="margin-bottom: 25px; text-align: center;">
+    <h2>Blockly Chapter 6 Question 3</h2>
+    <img src="https://i.postimg.cc/NM1HJ5BT/blockly-planks.png" alt="Blockly planks block" style="width: 300px; margin-top: 10px; border-radius: 8px;">
+    <p>The code works as the "variable" block asks "Stop at:". The "count" block counts your variable from 1 up to your variable by 1. Next, the "print" block prints out "2 x (variable) = (Variable x 2)". Essentially, what happens is that the times will keep going up to the number chosen by the person who asked.</p>
+</div>
+</html>
