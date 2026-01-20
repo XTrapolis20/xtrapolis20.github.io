@@ -1,82 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Printer Hub</title>
+<title>3D Printer Dashboard</title>
 <style>
 body {
-  font-family: -apple-system, sans-serif;
-  background: #111;
-  color: white;
-  text-align: center;
   margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #111;
+  color: #fff;
 }
-.container {
-  padding: 40px;
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
 }
-input, button {
-  font-size: 20px;
-  padding: 10px;
+.panel {
+  flex: 1;
+  min-width: 300px;
   margin: 10px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 10px;
 }
-button {
-  width: 200px;
+.panel img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
-.hidden {
-  display: none;
+.panel h2 {
+  margin: 5px 0;
+  font-size: 18px;
+}
+.status {
+  font-size: 20px;
+  margin: 3px 0;
 }
 </style>
 </head>
-
 <body>
-<div class="container">
-
-  <!-- LOGIN -->
-  <div id="login">
-    <h1>🔒 Printer Hub</h1>
-    <p>Enter PIN</p>
-    <input id="pin" type="password" />
-    <br>
-    <button onclick="unlock()">Unlock</button>
+<h1 style="text-align:center;">3D Printer Dashboard</h1>
+<div class="dashboard">
+  <div class="panel" id="k1-panel">
+    <h2>K1 Printer</h2>
+    <img id="k1-cam" src="">
+    <div class="status">Nozzle: <span id="k1-nozzle">--</span></div>
+    <div class="status">Bed: <span id="k1-bed">--</span></div>
+    <div class="status">Progress: <span id="k1-progress">--%</span></div>
+    <div class="status">File: <span id="k1-file">Idle</span></div>
   </div>
 
-  <!-- DASHBOARD -->
-  <div id="dashboard" class="hidden">
-    <h1>⚡ Power Control</h1>
-
-    <button onclick="runShortcut('K2 Power On')">
-      Power ON K2 Pro
-    </button>
-
-    <br><br>
-
-    <button onclick="lock()">🔒 Lock</button>
+  <div class="panel" id="k2-panel">
+    <h2>K2 Printer</h2>
+    <img id="k2-cam" src="">
+    <div class="status">Nozzle: <span id="k2-nozzle">--</span></div>
+    <div class="status">Bed: <span id="k2-bed">--</span></div>
+    <div class="status">Progress: <span id="k2-progress">--%</span></div>
+    <div class="status">File: <span id="k2-file">Idle</span></div>
   </div>
-
 </div>
 
 <script>
-const CORRECT_PIN = "1234"; // CHANGE THIS
+// Replace these with your printers' local IPs
+const printers = {
+  k1: "K1-IP",
+  k2: "K2-IP"
+};
 
-function unlock() {
-  const pin = document.getElementById("pin").value;
-  if (pin === CORRECT_PIN) {
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-  } else {
-    alert("Wrong PIN");
+// Helper function to fetch printer data
+async function updatePrinter(ip, panel) {
+  try {
+    const res = await fetch(`http://${ip}:7125/printer/objects/query?extruder=temperature&heater_bed=temperature&print_stats`);
+    const data = (await res.json()).result.status;
+
+    panel.nozzle.textContent = data.extruder.temperature.toFixed(1) + "°C";
+    panel.bed.textContent = data.heater_bed.temperature.toFixed(1) + "°C";
+    panel.progress.textContent = Math.round(data.print_stats.progress * 100) + "%";
+    panel.file.textContent = data.print_stats.filename || "Idle";
+
+    // Update webcam snapshots (refresh every 1.5s)
+    panel.cam.src = `http://${ip}/webcam/?action=snapshot&ts=${Date.now()}`;
+  } catch (e) {
+    console.error("Failed to fetch printer data for", ip, e);
   }
 }
 
-function lock() {
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("login").classList.remove("hidden");
-}
+// Get panel elements
+const k1UI = {
+  nozzle: document.getElementById("k1-nozzle"),
+  bed: document.getElementById("k1-bed"),
+  progress: document.getElementById("k1-progress"),
+  file: document.getElementById("k1-file"),
+  cam: document.getElementById("k1-cam")
+};
+const k2UI = {
+  nozzle: document.getElementById("k2-nozzle"),
+  bed: document.getElementById("k2-bed"),
+  progress: document.getElementById("k2-progress"),
+  file: document.getElementById("k2-file"),
+  cam: document.getElementById("k2-cam")
+};
 
-function runShortcut(name) {
-  window.location.href = "shortcuts://run-shortcut?name=" + encodeURIComponent(name);
-}
+// Update loop
+setInterval(() => {
+  updatePrinter(printers.k1, k1UI);
+  updatePrinter(printers.k2, k2UI);
+}, 2000);
+
+// Initial update
+updatePrinter(printers.k1, k1UI);
+updatePrinter(printers.k2, k2UI);
 </script>
-
 </body>
 </html>
