@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Printer Hub</title>
+<style>
+body {
+  font-family: -apple-system, sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+.container {
+  padding: 40px;
+}
+input, button {
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+button {
+  width: 200px;
+}
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="login">
+    <h1>🔒 Printer Hub</h1>
+    <p>Enter PIN</p>
+    <input id="pin" type="password" />
+    <br>
+    <button onclick="unlock()">Unlock</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+    <h1>⚡ Power Control</h1>
+
+    <button onclick="runShortcut('K2 Power On')">
+      Power ON K2 Pro
+    </button>
+
+    <br><br>
+
+    <button onclick="lock()">🔒 Lock</button>
+  </div>
+
+</div>
+
+<script>
+const CORRECT_PIN = "1234"; // CHANGE THIS
+
+function unlock() {
+  const pin = document.getElementById("pin").value;
+  if (pin === CORRECT_PIN) {
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+  } else {
+    alert("Wrong PIN");
+  }
+}
+
+function lock() {
+  document.getElementById("dashboard").classList.add("hidden");
+  document.getElementById("login").classList.remove("hidden");
+}
+
+function runShortcut(name) {
+  window.location.href = "shortcuts://run-shortcut?name=" + encodeURIComponent(name);
+}
+</script>
+
+</body>
+</html>
