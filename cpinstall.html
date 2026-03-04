@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install Creality Print on Chromebook (Linux)</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #e0e0e0;
+    padding: 40px;
+}
+h1, h2 {
+    color: #ffffff;
+}
+.section {
+    background: #111;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+.code-container {
+    display: flex;
+    align-items: center;
+    background: #000;
+    color: #00ff88;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border: 1px solid #222;
+}
+code {
+    flex-grow: 1;
+    white-space: pre-wrap;
+}
+button {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #222;
+    color: #fff;
+}
+button:hover {
+    background: #333;
+}
+a {
+    color: #00aaff;
+    word-break: break-all;
+}
+</style>
+</head>
+<body>
+
+<h1>Install Creality Print (Flatpak) on Chromebook</h1>
+
+<div class="section">
+<h2>Enable Linux</h2>
+<p>chrome://os-settings → Developers → Turn on Linux development environment</p>
+</div>
+
+<div class="section">
+<h2>Install Flatpak</h2>
+<div class="code-container">
+<code>sudo apt update && sudo apt install flatpak</code>
+<button onclick="copy(this)">Copy</button>
+</div>
+</div>
+
+<div class="section">
+<h2>Add Flathub Repository</h2>
+<div class="code-container">
+<code>flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo</code>
+<button onclick="copy(this)">Copy</button>
+</div>
+</div>
+
+<div class="section">
+<h2>Restart Linux</h2>
+<p>Right-click Terminal → Shut down Linux</p>
+</div>
+
+<div class="section">
+<h2>Download Creality Print</h2>
+<p>
+<a href="https://github.com/CrealityOfficial/CrealityPrint/releases/download/v7.0.0/CrealityPrint-Linux-flatpak_V7.0.0-Release_x86_64.flatpak" target="_blank">
+Download CrealityPrint-Linux-flatpak_V7.0.0-Release_x86_64.flatpak
+</a>
+</p>
+<p>Share Downloads folder with Linux in Files app.</p>
+</div>
+
+<div class="section">
+<h2>Install Creality Print</h2>
+
+<div class="code-container">
+<code>cd /mnt/chromeos/MyFiles/Downloads</code>
+<button onclick="copy(this)">Copy</button>
+</div>
+
+<div class="code-container">
+<code>flatpak install ./CrealityPrint-Linux-flatpak_V7.0.0-Release_x86_64.flatpak</code>
+<button onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Run Creality Print</h2>
+<div class="code-container">
+<code>flatpak run com.creality.crealityprint</code>
+<button onclick="copy(this)">Copy</button>
+</div>
+</div>
+
+<script>
+function copy(button) {
+    const code = button.parentElement.querySelector("code").innerText;
+    navigator.clipboard.writeText(code);
+    button.innerText = "Copied";
+    setTimeout(() => button.innerText = "Copy", 1500);
+}
+</script>
+
+</body>
+</html>
